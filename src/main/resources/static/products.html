@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site Name Products</title>
+  <script type="module" src="./js/itemsController.js" defer></script>
+  <script type="module" src="./js/index.js" defer></script>
+  <script type="module" src="./js/items.js" defer></script>
+  
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous"> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <div class="main2">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light text-bg-dark">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
+          aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <a class="navbar-brand" href="./index.html">ArtHub</a>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="./index.html"><b>Home</b></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="./products.html"><b>Product</b></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./freelancers.html"><b>Freelancers</b></a>
+            <li class="nav-item">
+              <a class="nav-link" href="./about.html"><b>About Us</b></a>
+            <li class="nav-item">
+              <a class="nav-link" href="./login.html"><b>Log-in</b></a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-primary" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <br>
+    <br>
+    <br>
+        <h6>Choose a work of art by a members of our artistan community</h6>
+  </div>
+    <div id="cards">
+      <!-- placement of cards -->
+    </div>
+  </div>
+  <div class='button-container mt-5 d-flex justify-content-end'>
+    <a class="btn btn-primary" href="./add-products.html" role="button">Click here to add or delete a product</a>
+  </div>
+  </div>
+  </div>
+  </div>
+
+<script id='card-template' type='text/x-handlebars-template'>
+    <div class="container-fluid">
+      <div class="row">
+        {{#each pieces}}
+        <div class="col-3 ">
+          <div class="card">
+            <img id="image" src="{{src}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 id="name" class="card-title">{{pieceName}}</h5>
+              <p id="disc" class="card-text">{{desc}}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li id="price" class="list-group-item"><a href="#" class="card-link">{{price}}</a></li>
+              <li id="artist" class="list-group-item"><a href="#" class="card-link">{{artist}}</a></li>
+            </ul>
+          </div>
+      </div>
+      {{/each}}
+
+      </div>
+    </div>
+</script>
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+  <div id="caption"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js" integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  <script src="./js/test.js"></script>
+  <script src="./js/modalListener.js"></script>
+
+
+</body>
+
+</html>
