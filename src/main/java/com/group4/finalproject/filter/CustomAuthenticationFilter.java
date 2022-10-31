@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -64,22 +65,24 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
       .withIssuer(request.getRequestURL().toString())
       .withClaim("roles", user.getAuthorities().stream().map(GrantedAuthority::getAuthority).collect(Collectors.toList()))
       .sign(algorithm);
+      
 
-    String refresh_token = JWT.create()
-      .withSubject(user.getUsername())
-      .withExpiresAt(new Date(System.currentTimeMillis() + 10 * 60 * 1000))
-      .withIssuer(request.getRequestURL().toString())
-      .sign(algorithm);
+    // String refresh_token = JWT.create()
+    //   .withSubject(user.getUsername())
+    //   .withExpiresAt(new Date(System.currentTimeMillis() + 10 * 60 * 1000))
+    //   .withIssuer(request.getRequestURL().toString())
+    //   .sign(algorithm);
      
-    Map<String, String> tokens = new HashMap<>();
-    tokens.put("access_token", token);
-    tokens.put("refresh_token", refresh_token);
-    response.setContentType(APPLICATION_JSON_VALUE);
-    new ObjectMapper().writeValue(response.getOutputStream(), tokens);
+    // Map<String, String> tokens = new HashMap<>();
+    // tokens.put("access_token", token);
+    // tokens.put("refresh_token", refresh_token);
+    // response.setContentType(APPLICATION_JSON_VALUE);
+    // new ObjectMapper().writeValue(response.getOutputStream(), tokens);
 
-
-    // response.setHeader("access_token", token);
-
+        
+    response.setHeader("access_token", token);
+   
+   // response.addCookie(token);
     // String refresh_token = JWT.create()
     //   .withSubject(user.getUsername())
     //   .withExpiresAt(new Date(System.currentTimeMillis() + 10 * 60 * 1000))
